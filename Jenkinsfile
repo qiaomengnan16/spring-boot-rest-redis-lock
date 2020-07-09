@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'mvn clean package'
+                sh '/home/user-package/apache-maven-3.6.3/bin/mvn clean package'
             }
         }
     }
