@@ -20,7 +20,7 @@ pipeline {
                 }
             }
             steps {
-                sh "echo \"kill -9 \$(ps -ef | grep \"${version}\" | grep -v \"grep\" | awk \'{print \$2}\')\""
+                sh "echo  \" \'{print \$2}\') \""
             }
         }
     }
