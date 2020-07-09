@@ -1,3 +1,11 @@
+def responseJson = new URL("http://k8s.n2:5000/v2/jenkins-test/tags/list").getText(requestProperties: ['Content-Type': 'application/json']);
+
+println(responseJson)
+
+Map response = new groovy.json.JsonSlurperClassic().parseText(responseJson) as Map;
+
+def versionStr = response.tags.join('\n');
+
 pipeline {
     agent any
 
