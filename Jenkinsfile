@@ -20,7 +20,7 @@ pipeline {
                 }
             }
             steps {
-                sh "ssh root@10.0.0.155 'docker rm -f jenkins-test && docker run --name jenkins-test -p 8080:8080 10.0.0.153:5000/jenkins-test:${version}'"
+                sh "ssh root@10.0.0.155 'docker rm -f jenkins-test && docker run --name jenkins-test -d -p 8080:8080 10.0.0.153:5000/jenkins-test:${version}'"
             }
         }
     }
