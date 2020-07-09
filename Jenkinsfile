@@ -6,8 +6,8 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'ssh root@10.0.0.151'
-                sh 'qiaohao'
+                sh '/home/user-package/apache-maven-3.6.3/bin/mvn clean package'
+                sh 'scp target/spring-boot-rest-redis-lock-1.0-SNAPSHOT.jar root@10.0.0.153:/root'
             }
         }
     }
