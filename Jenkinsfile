@@ -20,7 +20,7 @@ pipeline {
                 }
             }
             steps {
-                sh "echo  \" \'{print \$2}\') \""
+                sh "echo  ' {print \$2}) '"
             }
         }
     }
