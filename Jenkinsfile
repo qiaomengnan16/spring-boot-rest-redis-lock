@@ -1,4 +1,5 @@
-def responseJson = new URL("http://k8s.n2:5000/v2/jenkins-test/tags/list").getText(requestProperties: ['Content-Type': 'application/json']);
+def responseJson = new URL("http://10.0.0.153:5000/v2/jenkins-test/tags/list")
+                    .getText(requestProperties: ['Content-Type': 'application/json']);
 
 println(responseJson)
 
@@ -19,7 +20,7 @@ pipeline {
                 }
             }
             steps {
-                sh "ssh root@k8s.n3 'docker rm -f jenkins-test && docker run --name jenkins-test -p 8080:8080 k8s.n2:5000/jenkins-test:${version}'"
+                sh "ssh root@k8s.n3 'docker rm -f jenkins-test && docker run --name jenkins-test -p 8080:8080 10.0.0.153:5000/jenkins-test:${version}'"
             }
         }
     }
